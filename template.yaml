@@ -69,6 +69,7 @@ Resources:
       CodeUri: get_all/
       Handler: app.lambda_handler
       Runtime: python3.8
+      Role: !GetAtt LambdaExcecutionRole.Arn
       Events:
         HelloWorld:
           Type: Api
