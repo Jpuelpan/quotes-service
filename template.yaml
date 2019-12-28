@@ -77,6 +77,20 @@ Resources:
             Path: /
             Method: get
 
+  GetRandomFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: get_random/
+      Handler: app.lambda_handler
+      Runtime: python3.8
+      Role: !GetAtt LambdaExcecutionRole.Arn
+      Events:
+        HelloWorld:
+          Type: Api
+          Properties:
+            Path: /random
+            Method: get
+
 Outputs:
   QuotesApi:
     Description: "Base API URL in Prod Stage"
